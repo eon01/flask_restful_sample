@@ -31,12 +31,12 @@ def get_password(username):
     return None
 
 #Get genres
-@app.route('/todo/api/v1.0/genres', methods=['GET'])
+@app.route('/music/api/v1.0/genres', methods=['GET'])
 def get_genres():
     return jsonify({'genres': genres})
 
 #Get genre by id
-@app.route('/todo/api/v1.0/genres/<int:genre_id>', methods=['GET'])
+@app.route('/music/api/v1.0/genres/<int:genre_id>', methods=['GET'])
 def get_genre(genre_id):
     genre = [genre for genre in genres if genre['id'] == genre_id]
     if len(genre) == 0:
@@ -44,9 +44,9 @@ def get_genre(genre_id):
     return jsonify({'genre': genre[0]})
 
 #Create a genre
-#Eample: curl -i -H "Content-Type: application/json" -X POST -d '{"name":"Headbanging"}' http://localhost:5000/todo/api/v1.0/genres
+#Eample: curl -i -H "Content-Type: application/json" -X POST -d '{"name":"Headbanging"}' http://localhost:5000/music/api/v1.0/genres
 @auth.login_required
-@app.route('/todo/api/v1.0/genres', methods=['POST'])
+@app.route('/music/api/v1.0/genres', methods=['POST'])
 def create_genre():
     if not request.json or not 'name' in request.json:
         abort(400)
