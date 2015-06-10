@@ -1,2 +1,2 @@
-# flask_restfull_sample
-This is a sample Flask restfull application
+# flask_restful_sample
+This is a sample Flask restful application
